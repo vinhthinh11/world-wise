@@ -2,7 +2,9 @@ import styles from './CityList.module.css';
 import Spinner from './Spinner';
 import CityItem from './CityItem';
 import Message from './Message';
-function CityList({ cities, isLoading }) {
+import { useCity } from '../contexts/CitiesContext';
+function CityList() {
+  const { cities, isLoading } = useCity();
   if (isLoading) return <Spinner />;
   if (!cities.length)
     return <Message message={'ban chua chon thanh pho nao ca'} />;

@@ -2,7 +2,9 @@ import styles from './CountryList.module.css';
 import Spinner from './Spinner';
 import CountryItem from './CountryItem';
 import Message from './Message';
-function CountryList({ cities, isLoading }) {
+import { useCity } from '../contexts/CitiesContext';
+function CountryList() {
+  const { cities, isLoading } = useCity();
   const contries = cities.reduce((acc, city) => {
     if (!acc.map(city => city.country).includes(city.country))
       return [...acc, city];
